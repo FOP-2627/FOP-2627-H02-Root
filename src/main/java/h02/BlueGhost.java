@@ -30,9 +30,9 @@ public class BlueGhost extends Robot implements Ghost, TickBased {
     @Override
     @StudentImplementationRequired("H2.1")
     public void doMove() {
-        turnRight();
+        turnLeft();
         while (!isFrontClear()) {
-            turnLeft();
+            turnRight();
         }
         move();
     }

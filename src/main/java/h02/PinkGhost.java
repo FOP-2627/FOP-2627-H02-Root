@@ -33,7 +33,7 @@ public class PinkGhost extends Robot implements Ghost, TickBased {
     public void doMove() {
         int freeLanes = 0;
         for (int i = 0; i < 4; i++) {
-            turnLeft();
+            turnRight();
             if (isFrontClear()) {
                 freeLanes++;
             }
@@ -46,5 +46,16 @@ public class PinkGhost extends Robot implements Ghost, TickBased {
             } while (!isFrontClear());
         }
         move();
+    }
+
+    /**
+     * Turns the robot to the right.
+     *
+     */
+    @SolutionOnly
+    private void turnRight() {
+        for (int i = 0; i < 3; i++) {
+            turnLeft();
+        }
     }
 }

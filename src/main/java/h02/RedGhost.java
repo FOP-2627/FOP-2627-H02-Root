@@ -29,10 +29,12 @@ public class RedGhost extends Robot implements Ghost, TickBased {
     }
 
     /**
-     * Returns the direction in which the robot is the closest to the chaser
+     * Returns the direction in which the robot is the closest to the pacman and
+     * should turn to.
      *
-     * @param pacman the robot that is being chased
-     * @return the direction in which the robot is the closest to the chaser
+     * @param pacman pacman the robot that is being chased
+     * @return the direction in which the robot is the closest to the pacman and
+     *         should turn to
      */
     public Direction nextDirection(Robot pacman) {
         int px = pacman.getX();
