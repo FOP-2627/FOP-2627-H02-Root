@@ -6,6 +6,7 @@ import fopbot.Robot;
 import h02.template.Families;
 import h02.template.Ghost;
 import h02.template.TickBased;
+import h02.template.Util;
 
 /**
  * {@link OrangeGhost} is a {@link Robot} that looks like a orange ghost.
@@ -23,8 +24,6 @@ public class OrangeGhost extends Robot implements Ghost, TickBased {
         super(x, y, Families.GHOST_ORANGE);
     }
 
-    private boolean leftTurnNext = false;
-
     /**
      * Moves the robot in a straight line if possible.
      * If the robot cannot move forward, it turns left or right until there is no
@@ -38,16 +37,19 @@ public class OrangeGhost extends Robot implements Ghost, TickBased {
             move();
             return;
         } else {
-            while (!isFrontClear()) {
-                if (leftTurnNext) {
-                    turnLeft();
-                } else {
-                    turnLeft();
-                    turnLeft();
-                    turnLeft();
-                }
+            if (Util.getRandomBoolean()) {
+                turnLeft();
+            } else {
+                turnRight();
             }
-            leftTurnNext = !leftTurnNext;
+
+            int randomNumber = Util.getRandomInteger(0, 3);
+            for (int i = 0; i < randomNumber; i++) {
+                if (isFrontClear()) {
+                    break;
+                }
+                move();
+            }
         }
     }
 }
