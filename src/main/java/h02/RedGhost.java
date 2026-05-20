@@ -36,7 +36,7 @@ public class RedGhost extends Robot implements Ghost, TickBased {
      * @return the direction in which the robot is the closest to the pacman and
      *         should turn to
      */
-    public Direction nextDirection(Robot pacman) {
+    public Direction nextDirection() {
         int px = pacman.getX();
         int py = pacman.getY();
         int cx = this.getX();
@@ -64,7 +64,7 @@ public class RedGhost extends Robot implements Ghost, TickBased {
     @Override
     @StudentImplementationRequired("H2.4")
     public void doMove() {
-        turnDirection(nextDirection(pacman));
+        turnDirection(nextDirection());
         while (!isFrontClear()) {
             turnLeft();
         }

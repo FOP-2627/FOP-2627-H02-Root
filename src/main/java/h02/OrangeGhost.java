@@ -44,11 +44,8 @@ public class OrangeGhost extends Robot implements Ghost, TickBased {
                 turnLeft();
             }
 
-            int randomNumber = Util.getRandomInteger(0, 3);
-            for (int i = 0; i < randomNumber; i++) {
-                if (!isFrontClear()) {
-                    break;
-                }
+            int randomNumber = Util.getRandomInteger(0, 2627);
+            if (randomNumber % 4 == 0 && isFrontClear()) {
                 move();
             }
         }
