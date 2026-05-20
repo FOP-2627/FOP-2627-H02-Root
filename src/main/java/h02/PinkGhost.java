@@ -1,5 +1,6 @@
 package h02;
 
+import org.tudalgo.algoutils.student.annotation.SolutionOnly;
 import org.tudalgo.algoutils.student.annotation.StudentImplementationRequired;
 
 import fopbot.Robot;
