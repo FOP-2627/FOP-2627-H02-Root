@@ -9,6 +9,11 @@ public class Util {
 
     private static Random rnd = new Random();
 
+    @SuppressWarnings("unused")
+    public static void setRandom(Random random) {
+        rnd = random;
+    }
+
     /**
      * Returns a random integer between min and max (both inclusive)
      *

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import fopbot.Direction;
@@ -22,14 +21,6 @@ public class GameInputHandler {
      * turn.
      */
     private final AtomicInteger direction = new AtomicInteger(-1);
-    /**
-     * If {@code true} the robot should put a coin on the current field.
-     */
-    private final AtomicBoolean shouldPutCoins = new AtomicBoolean(false);
-    /**
-     * If {@code true} the robot should pick a coin from the current field.
-     */
-    private final AtomicBoolean shouldPickCoins = new AtomicBoolean(false);
 
     /**
      * Parses the inputs to a direction.
@@ -81,8 +72,7 @@ public class GameInputHandler {
     }
 
     /**
-     * Updates the {@link #direction}, {@link #shouldPutCoins} and
-     * {@link #shouldPickCoins} based on the pressed keys.
+     * Updates the {@link #direction} based on the pressed keys.
      */
     protected void updateKeysPressed() {
         this.direction.set(
@@ -90,10 +80,6 @@ public class GameInputHandler {
                         getDirectionFromKeysPressed(World.getGlobalWorld().getInputHandler().getKeysPressed()))
                         .map(Enum::ordinal)
                         .orElse(-1));
-        this.shouldPickCoins.set(
-                World.getGlobalWorld().getInputHandler().getKeysPressed().contains(java.awt.event.KeyEvent.VK_SPACE));
-        this.shouldPutCoins.set(
-                World.getGlobalWorld().getInputHandler().getKeysPressed().contains(java.awt.event.KeyEvent.VK_R));
     }
 
     /**

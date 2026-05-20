@@ -9,7 +9,7 @@ import h02.template.TickBased;
 import h02.template.Util;
 
 /**
- * {@link OrangeGhost} is a {@link Robot} that looks like a orange ghost.
+ * {@link OrangeGhost} is a {@link Robot} that looks like an orange ghost.
  * It tries to move in a straight line and alternates between turning left and
  * right.
  */
@@ -35,7 +35,6 @@ public class OrangeGhost extends Robot implements Ghost, TickBased {
     public void doMove() {
         if (isFrontClear()) {
             move();
-            return;
         } else {
             if (Util.getRandomBoolean()) {
                 turnLeft();

@@ -42,10 +42,10 @@ public class RedGhost extends Robot implements Ghost, TickBased {
         int cx = this.getX();
         int cy = this.getY();
 
-        int xdelta = Math.abs(px - cx);
-        int ydelta = Math.abs(py - cy);
+        int xDelta = Math.abs(px - cx);
+        int yDelta = Math.abs(py - cy);
 
-        if (xdelta > ydelta) {
+        if (xDelta > yDelta) {
             if (cx > px)
                 return Direction.LEFT;
             else
@@ -82,5 +82,4 @@ public class RedGhost extends Robot implements Ghost, TickBased {
             turnLeft();
         }
     }
-
 }

@@ -21,6 +21,7 @@ import h02.RedGhost;
  * A {@link GameControllerTemplate} controls the game loop and the
  * {@link Robot}s and checks the win condition.
  */
+@SuppressWarnings("UnstableApiUsage")
 public abstract class GameControllerTemplate {
     /**
      * The {@link Timer} that controls the game loop.
@@ -67,7 +68,7 @@ public abstract class GameControllerTemplate {
      */
     protected Robot red;
 
-    private Point ghostField = new Point(4, 4);
+    private final Point ghostField = new Point(4, 4);
 
     /**
      * A {@link Map} that maps a {@link Robot} to the amount of ticks that have
@@ -115,6 +116,7 @@ public abstract class GameControllerTemplate {
      *
      * @return the {@link h02.Pacman} {@link Robot}
      */
+    @SuppressWarnings("unused")
     public Robot getPacman() {
         return pacman;
     }
@@ -124,6 +126,7 @@ public abstract class GameControllerTemplate {
      *
      * @return the {@link BlueGhost} {@link Robot}
      */
+    @SuppressWarnings("unused")
     public Robot getBlue() {
         return blue;
     }
@@ -133,6 +136,7 @@ public abstract class GameControllerTemplate {
      *
      * @return the {@link OrangeGhost} {@link Robot}
      */
+    @SuppressWarnings("unused")
     public Robot getOrange() {
         return orange;
     }
@@ -142,6 +146,7 @@ public abstract class GameControllerTemplate {
      *
      * @return the {@link PinkGhost} {@link Robot}
      */
+    @SuppressWarnings("unused")
     public Robot getPink() {
         return pink;
     }
@@ -151,6 +156,7 @@ public abstract class GameControllerTemplate {
      *
      * @return the {@link RedGhost} {@link Robot}
      */
+    @SuppressWarnings("unused")
     public Robot getRed() {
         return red;
     }
@@ -223,26 +229,6 @@ public abstract class GameControllerTemplate {
      */
     public void setupWorld() {
         World.setSize(9, 9);
-
-        // World.getGlobalWorld().setGuiPanel(new GuiPanel(World.getGlobalWorld()) {
-        // @Override
-        // @SuppressWarnings("UnstableApiUsage")
-        // protected void drawCoin(final Coin c, final Graphics g, final boolean
-        // evadeRobots) {
-        // final var g2d = (Graphics2D) g;
-        // final var oldColor = g2d.getColor();
-        // g2d.setColor(getColorProfile().getCoinColor());
-        // final Rectangle2D fieldBounds = scale(PaintUtils.getFieldBounds(c, world));
-        // final double radius = scale(5d);
-        // g2d.fill(
-        // new Ellipse2D.Double(
-        // fieldBounds.getCenterX() - radius,
-        // fieldBounds.getCenterY() - radius,
-        // 2 * radius,
-        // 2 * radius));
-        // }
-        // });
-
         World.setDelay(0);
         World.setVisible(true);
         World.getGlobalWorld().setDrawTurnedOffRobots(false);
@@ -349,7 +335,7 @@ public abstract class GameControllerTemplate {
     public abstract boolean checkWinCondition();
 
     /**
-     * Checks the lose condition.
+     * Checks the loss condition.
      *
      * @return Returns true if the game is lost.
      */
