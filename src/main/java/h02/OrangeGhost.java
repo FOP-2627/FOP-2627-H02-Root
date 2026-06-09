@@ -25,13 +25,15 @@ public class OrangeGhost extends Robot implements Ghost, TickBased {
     }
 
     /**
-     * Moves the robot in a straight line if possible.
-     * If the robot cannot move forward, it turns left or right until there is no
-     * wall in front.
-     * The robot alternates between turning left and right.
+     * If the front is clear, it moves forward.
+     * Otherwise, it generates a random boolean value. If the value is true, it
+     * turns left, otherwise it turns right.
+     *
+     * After that, it generates a random integer value between 0 and 2627.
+     * If the value is divisible by 4 and the front is clear, it moves forward.
      */
     @Override
-    @StudentImplementationRequired("H2.3")
+    @StudentImplementationRequired("H2.2.3")
     public void doMove() {
         if (isFrontClear()) {
             move();

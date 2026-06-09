@@ -25,12 +25,12 @@ public class PinkGhost extends Robot implements Ghost, TickBased {
     }
 
     /**
-     * Finds in how many directions the ghost can move and then turns a random
-     * amount of times to the left.
-     * The ghost then moves forward or turns to the left until it can move forward.
+     * Finds all free directions turning clockwise and counts them. Then it
+     * generates a random number between 1 and the number of free directions and
+     * turns to the corresponding direction and moves forward.
      */
     @Override
-    @StudentImplementationRequired("H2.2")
+    @StudentImplementationRequired("H2.2.4")
     public void doMove() {
         int freeLanes = 0;
         for (int i = 0; i < 4; i++) {

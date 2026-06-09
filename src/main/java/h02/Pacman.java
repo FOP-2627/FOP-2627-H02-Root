@@ -1,5 +1,10 @@
 package h02;
 
+import static fopbot.Direction.DOWN;
+import static fopbot.Direction.LEFT;
+import static fopbot.Direction.RIGHT;
+import static fopbot.Direction.UP;
+
 import org.tudalgo.algoutils.student.annotation.SolutionOnly;
 import org.tudalgo.algoutils.student.annotation.StudentImplementationRequired;
 
@@ -35,20 +40,20 @@ public class Pacman extends Robot implements Controllable, TickBased {
      * @param k the int value of the pressed key
      */
     @Override
-    @StudentImplementationRequired("H1.1")
+    @StudentImplementationRequired("H2.1")
     public void handleKeyInput(int k) {
         if (k < 0 || k > 3) {
             return;
         }
 
         if (k == 0) {
-            turnDirection(Direction.UP);
+            turnDirection(UP);
         } else if (k == 1) {
-            turnDirection(Direction.RIGHT);
+            turnDirection(RIGHT);
         } else if (k == 2) {
-            turnDirection(Direction.DOWN);
+            turnDirection(DOWN);
         } else {
-            turnDirection(Direction.LEFT);
+            turnDirection(LEFT);
         }
 
         if (isFrontClear()) {

@@ -29,12 +29,10 @@ public class RedGhost extends Robot implements Ghost, TickBased {
     }
 
     /**
-     * Returns the direction in which the robot is the closest to the pacman and
-     * should turn to.
+     * Returns the dirction where the robot should turn to in order to get closer to
+     * pacman.
      *
-     * @param pacman pacman the robot that is being chased
-     * @return the direction in which the robot is the closest to the pacman and
-     *         should turn to
+     * @return the direction to turn to get closer to pacman
      */
     public Direction nextDirection() {
         int px = pacman.getX();
@@ -59,10 +57,11 @@ public class RedGhost extends Robot implements Ghost, TickBased {
     }
 
     /**
-     * Moves the robot in the direction of the chased robot.
+     * Turns the robot in the direction of pacman. If the front is not clear, it
+     * turns to the left until the front is clear and then moves forward.
      */
     @Override
-    @StudentImplementationRequired("H2.4")
+    @StudentImplementationRequired("H2.2.2")
     public void doMove() {
         turnDirection(nextDirection());
         while (!isFrontClear()) {
@@ -72,7 +71,7 @@ public class RedGhost extends Robot implements Ghost, TickBased {
     }
 
     /**
-     * Turns the robot in the given direction.
+     * Turns the robot to the given direction.
      *
      * @param dir the direction to turn to
      */

@@ -24,11 +24,11 @@ public class BlueGhost extends Robot implements Ghost, TickBased {
     }
 
     /**
-     * Turns the robot to the right and then moves in the first direction that is
-     * clear.
+     * Turns the robot to the left. If the front is not clear, it turns to the right
+     * until the front is clear and then moves forward.
      */
     @Override
-    @StudentImplementationRequired("H2.1")
+    @StudentImplementationRequired("H2.2.1")
     public void doMove() {
         turnLeft();
         while (!isFrontClear()) {
@@ -39,7 +39,6 @@ public class BlueGhost extends Robot implements Ghost, TickBased {
 
     /**
      * Turns the robot to the right.
-     *
      */
     @SolutionOnly
     private void turnRight() {
